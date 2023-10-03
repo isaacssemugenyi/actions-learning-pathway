@@ -1,0 +1,9 @@
+name: hello-world # name of the workflow
+on: push # event that will trigger the pipeline/ Job
+jobs: # job that will executed when the event of pushing to the repo occurs
+  hello-world-job: # name given to the job that will execute, this makes it easier for people to understand the pipeline
+    runs-on: ubuntu-latest # machine that will be used to execute the job (recommended to use the latest runner from github)
+    steps: # Action is a reusable module used to perform complex, frequently recurring tasks.
+      - name: Check out repository code
+        uses: actions/checkout@v3 # this should be used everytime my workflow needs to access my repository content
+      - run: echo "$(cat hello_world.txt)"
